@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # LOCAL PATHS
 alias art='cd ~/dev/prod/motion-projects/art-bulvar/rails-app'
 alias lean="cd ~/dev/prod/leansquad"
