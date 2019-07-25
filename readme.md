@@ -1,40 +1,65 @@
-Packages and tools I found very useful
-
-* [Ag](https://github.com/ggreer/the_silver_searcher)
-
-  Best search speed, used both in vim ctrl-p, and simple search via terminal
-  **Usage**
-  ```
-  ls / | ag 'myname'
-  ```
+## Languages
+  * Ruby
+    
+    `rbenv install 2.6.1`
+  * Elixir
+    
+    `brew install elixir`
+  * Erlang
   
-* [Zsh](https://www.zsh.org)
+    [Download link](https://www.erlang-solutions.com/resources/download.html)
 
-  Make your terminal fun again (Will be default in new macos Catalina)
+## Utilities
+  * [Ag](https://github.com/ggreer/the_silver_searcher)
 
-  **Quick install**
-  ```
-  brew install zsh
-  # make default shell
-  sudo -s 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh    
-  ```
-  
-* [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+    Best search speed, used both in vim ctrl-p, and simple search via terminal
+    **Usage**
+    ```
+    ls / | ag 'myname'
+    ```
 
-  Many useful packages, browse /plugins
+  * [Zsh](https://www.zsh.org)
 
-* [Vundle](https://github.com/VundleVim/Vundle.vim)
+    Make your terminal fun again (Will be default in new macos Catalina)
 
-  Vim package manager like bundler for ruby
+    **Quick install**
+    ```
+    brew install zsh
+    # make default shell
+    sudo -s 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh    
+    ```
 
-* [Diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+  * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
-  Better git diff with syntax highlight
+    Many useful packages, browse /plugins
 
-* [Bat](https://github.com/sharkdp/bat)
-  
-  Better cat command with syntax highlight
-  
-* [iTerm](https://iterm2.com/)
+  * [Vundle](https://github.com/VundleVim/Vundle.vim)
 
-  Replacement for default terminal
+    Vim package manager like bundler for ruby
+
+  * [Diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+
+    Better git diff with syntax highlight
+
+  * [Bat](https://github.com/sharkdp/bat)
+
+    Better cat command with syntax highlight
+
+  * [iTerm](https://iterm2.com/)
+
+    Replacement for default terminal
+
+  * [Rbenv](https://github.com/rbenv/rbenv)
+
+    Ruby version manager
+
+  * [Kiex](https://github.com/taylor/kiex)
+
+    Elixir version manager
+
+  * [Homebrew](https://github.com/Homebrew/install)
+
+    `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
+  * [Robo3t](https://robomongo.org/)
+
