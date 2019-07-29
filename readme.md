@@ -33,10 +33,7 @@
     ```
     brew install zsh
     # make default shell
-    sudo -s 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh    
-    
-    # Use syntax highlightning fish like shell, see in .zshrc plugin
-    brew install zsh-syntax-highlighting
+    sudo -s 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh
     ```
 
   * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
@@ -65,3 +62,13 @@
 
   * [Robo3t](https://robomongo.org/)
 
+## Troubleshooting
+
+  * zsh-syntax-highlightning
+  
+    If occurs `plugin zsh-syntax-highlighting not found` run the following.
+
+    ```
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    ```
