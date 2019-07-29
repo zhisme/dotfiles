@@ -34,6 +34,9 @@
     brew install zsh
     # make default shell
     sudo -s 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh    
+    
+    # Use syntax highlightning fish like shell, see in .zshrc plugin
+    brew install zsh-syntax-highlighting
     ```
 
   * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
