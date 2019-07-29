@@ -1,13 +1,20 @@
 ## Languages
   * Ruby
-    
+
+    - [Rbenv](https://github.com/rbenv/rbenv)
+
     `rbenv install 2.6.1`
-  * Elixir
-    
-    `brew install elixir`
   * Erlang
-  
+
     [Download link](https://www.erlang-solutions.com/resources/download.html)
+   
+  * Elixir
+
+    - [Kiex](https://github.com/taylor/kiex)
+
+    `\curl -sSL https://raw.githubusercontent.com/taylor/kiex/master/install | bash -s`
+
+    `kiex install 1.4.5`
 
 ## Utilities
   * [Ag](https://github.com/ggreer/the_silver_searcher)
