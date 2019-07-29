@@ -56,14 +56,6 @@
 
     Replacement for default terminal
 
-  * [Rbenv](https://github.com/rbenv/rbenv)
-
-    Ruby version manager
-
-  * [Kiex](https://github.com/taylor/kiex)
-
-    Elixir version manager
-
   * [Homebrew](https://github.com/Homebrew/install)
 
     `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
