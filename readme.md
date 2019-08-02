@@ -61,6 +61,11 @@
     `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
   * [Robo3t](https://robomongo.org/)
+  
+  * [Vim]
+    
+    `brew install vim`
+    and symlink to override default vim otherwise you cannot use clipboard.
 
 ## Troubleshooting
 
