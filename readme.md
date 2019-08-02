@@ -62,10 +62,11 @@
 
   * [Robo3t](https://robomongo.org/)
   
-  * [Vim]
+  * Vim
     
     `brew install vim`
-    and symlink to override default vim otherwise you cannot use clipboard.
+    
+    Then symlink to override default vim otherwise you cannot use clipboard.
 
 ## Troubleshooting
 
