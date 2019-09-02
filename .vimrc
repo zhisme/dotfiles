@@ -17,6 +17,7 @@ set statusline=%f\ %m
 set autoindent expandtab tabstop=2 shiftwidth=2
 set showtabline=2
 set pastetoggle=<F8>
+set colorcolumn=100
 filetype off
 
 " set the runtime path to include Vundle and initialize
