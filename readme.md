@@ -62,6 +62,10 @@
 
   * [Robo3t](https://robomongo.org/)
   
+  * [material-design-color](https://github.com/MartinSeeler/iterm2-material-design)
+    
+    Better colors for iTerm2 terminal
+  
   * Vim
     
     `brew install vim`
