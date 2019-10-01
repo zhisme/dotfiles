@@ -5,7 +5,7 @@ ZSH_THEME="geoffgarside"
 plugins=(
   git
   osx
-  nvm
+  zsh-nvm
   common-aliases
   z
   zsh-syntax-highlighting
