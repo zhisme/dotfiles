@@ -72,6 +72,14 @@
     
     Then symlink to override default vim otherwise you cannot use clipboard.
 
+  * Mysql
+
+     ```
+       brew install mysql
+       mysql.server start
+       mysql -u root
+     ```
+
 ## Troubleshooting
 
   * zsh-syntax-highlightning
