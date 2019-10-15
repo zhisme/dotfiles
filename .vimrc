@@ -93,3 +93,16 @@ map <F2>      :NERDTreeToggle<cr>
 map <S-Right> :tabn<CR>
 map <S-Left>  :tabp<CR>
 map <C-a> <esc>ggVG<CR>
+
+
+" Map alt-x keys to jump to a tab (mac-only)
+nnoremap ¡ 1gt <CR>
+nnoremap ™ 2gt <CR>
+nnoremap £ 3gt <CR>
+nnoremap ¢ 4gt <CR>
+nnoremap ∞ 5gt <CR>
+nnoremap § 6gt <CR>
+nnoremap ¶ 7gt <CR>
+nnoremap • 8gt <CR>
+nnoremap ª :tablast <CR>
+" alt-9 ta last tab
