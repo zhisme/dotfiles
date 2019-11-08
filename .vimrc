@@ -17,7 +17,8 @@ set statusline=%f\ %m
 set autoindent expandtab tabstop=2 shiftwidth=2
 set showtabline=2
 set pastetoggle=<F8>
-set colorcolumn=100
+set backspace=indent,eol,start
+set maxmempattern=20000 " for big ones
 filetype off
 
 " set the runtime path to include Vundle and initialize
@@ -40,6 +41,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/ruby-matchit'
 Plugin 'vim-airline/vim-airline'
 Plugin 'slim-template/vim-slim'
+Plugin 'prettier/vim-prettier'
 
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'vim-ruby/vim-ruby'
@@ -47,8 +49,8 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'fatih/vim-go'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'HerringtonDarkholme/yats.vim'
 
 call vundle#end()
 
@@ -65,7 +67,7 @@ let g:auto_save_in_insert_mode = 0
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
 " Ctrl-p
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor\'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -75,6 +77,9 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+" Prettier
+let g:prettier#exec_cmd_path = "/Users/zh/.nvm/versions/node/v10.17.0/bin/prettier"
 
 " custom functions
 function! StripTrailingWhite()
@@ -93,7 +98,6 @@ map <F2>      :NERDTreeToggle<cr>
 map <S-Right> :tabn<CR>
 map <S-Left>  :tabp<CR>
 map <C-a> <esc>ggVG<CR>
-
 
 " Map alt-x keys to jump to a tab (mac-only)
 nnoremap ¡ 1gt <CR>
