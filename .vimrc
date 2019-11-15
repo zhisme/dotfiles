@@ -42,6 +42,8 @@ Plugin 'vim-scripts/ruby-matchit'
 Plugin 'vim-airline/vim-airline'
 Plugin 'slim-template/vim-slim'
 Plugin 'prettier/vim-prettier'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'thoughtbot/vim-rspec'
 
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'vim-ruby/vim-ruby'
@@ -67,7 +69,6 @@ let g:auto_save_in_insert_mode = 0
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
 " Ctrl-p
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor\'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -80,6 +81,9 @@ endif
 
 " Prettier
 let g:prettier#exec_cmd_path = "/Users/zh/.nvm/versions/node/v10.17.0/bin/prettier"
+
+" Rubocop
+nmap <Leader>ra :RuboCop -a<CR>
 
 " custom functions
 function! StripTrailingWhite()
@@ -110,3 +114,10 @@ nnoremap ¶ 7gt <CR>
 nnoremap • 8gt <CR>
 nnoremap ª :tablast <CR>
 " alt-9 ta last tab
+
+" vim-rspec
+let g:rspec_command = "!bundle exec rspec --drb {spec}"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>

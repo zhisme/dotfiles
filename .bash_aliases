@@ -21,6 +21,7 @@ alias ssh_zh="ssh zh@142.93.131.30"
 #TOOLS
 alias copyx="xclip selection-clipboard"
 alias pastex="xclip -o -selection clipboard"
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # GIT
 stashgrep() {
