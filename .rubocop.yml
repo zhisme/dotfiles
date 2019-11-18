@@ -1,0 +1,94 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+  - db/schema.rb
+  - bin/spring
+  - vendor/assets/bower_components/**/*
+  - tmp/**/*
+  - config/puma/capistrano.rb
+  - bin/git-hooks/rspec-pre-commit.rb
+
+# Disable, till rubocop supports combination of styles.
+# Use one of this styles where appropriate, keep it clean, compact and readable.
+Layout/AlignParameters:
+  Enabled: false
+
+# Breaks
+#
+#   I18n.t(key,
+#     param: val,
+#     # ...
+#   )
+Layout/ClosingParenthesisIndentation: {Enabled: false}
+
+Layout/DotPosition: {EnforcedStyle: trailing}
+
+# Args alignment is prefered for migrations.
+Layout/ExtraSpacing:
+  Exclude:
+  - db/migrate/*
+
+Layout/IndentFirstArgument: {EnforcedStyle: consistent}
+Layout/IndentFirstHashElement: {EnforcedStyle: consistent}
+Layout/IndentFirstArrayElement: {EnforcedStyle: consistent}
+
+# Same as Layout/ClosingParenthesisIndentation
+Layout/MultilineMethodCallBraceLayout: {Enabled: false}
+Layout/MultilineMethodCallIndentation: {EnforcedStyle: indented}
+Layout/MultilineOperationIndentation: {EnforcedStyle: indented}
+
+Layout/SpaceInsideHashLiteralBraces: {EnforcedStyle: no_space}
+
+# Offences named scopes and `expect {}.to change {}`.
+Lint/AmbiguousBlockAssociation: {Enabled: false}
+
+# Metrics for good perception and expressiveness.
+Metrics/AbcSize:
+  Max: 25
+  Exclude:
+  - db/migrate/*
+
+# Other metrics are just enough.
+# This one offences all specs, routes and some initializers.
+Metrics/BlockLength: {Enabled: false}
+Metrics/ClassLength:
+  CountComments: false
+  Max: 250
+Metrics/CyclomaticComplexity: {Max: 7}
+Metrics/LineLength: {Max: 100}
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+  - db/migrate/*
+
+Style/Alias: {EnforcedStyle: prefer_alias_method}
+
+# Controllers and helpers does not require to be scoped.
+Style/ClassAndModuleChildren:
+  Exclude:
+  - app/controllers/**/*
+  - app/helpers/**/*
+
+# Don't require documentation.
+Style/Documentation: {Enabled: false}
+
+# Consistent to other definitions.
+Style/EmptyMethod: {EnforcedStyle: expanded}
+
+Style/FrozenStringLiteralComment: {EnforcedStyle: never}
+
+# Modifiers are less readable sometimes
+Style/IfUnlessModifier: {Enabled: false}
+
+Style/Lambda: {EnforcedStyle: literal}
+
+# `module_function` & `extend self` has different purpose. Use wisely.
+Style/ModuleFunction: {Enabled: false}
+
+Style/SignalException: {EnforcedStyle: only_raise}
+
+# Does not work well with **options and single args.
+Style/TrailingCommaInArguments: {Enabled: false}
+
+Style/TrailingCommaInArrayLiteral: {EnforcedStyleForMultiline: consistent_comma}
+Style/TrailingCommaInHashLiteral: {EnforcedStyleForMultiline: consistent_comma}
