@@ -61,10 +61,6 @@ syntax enable
 set background=dark
 colorscheme open-color
 
-" Autosave
-let g:auto_save = 1
-let g:auto_save_in_insert_mode = 0
-
 " vim-slim
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
@@ -81,9 +77,6 @@ endif
 
 " Prettier
 let g:prettier#exec_cmd_path = "/Users/zh/.nvm/versions/node/v10.17.0/bin/prettier"
-
-" Rubocop
-nmap <Leader>ra :RuboCop -a<CR>
 
 " custom functions
 function! StripTrailingWhite()
@@ -102,6 +95,7 @@ map <F2>      :NERDTreeToggle<cr>
 map <S-Right> :tabn<CR>
 map <S-Left>  :tabp<CR>
 map <C-a> <esc>ggVG<CR>
+nmap <Leader>ra :RuboCop -a<CR>
 
 " Map alt-x keys to jump to a tab (mac-only)
 nnoremap ¡ 1gt <CR>

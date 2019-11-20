@@ -1,0 +1,89 @@
+#!/usr/bin/env ruby
+# See bin/dotfiles --help for more information
+
+require 'fileutils'
+require 'pathname'
+require 'optparse'
+
+########################################################
+#                                                      #
+#                       SETUP                          #
+#                                                      #
+########################################################
+
+$options = {}
+
+def puts_verbosely(str, line_space = nil)
+  return unless $options[:verbose]
+
+  puts str
+  puts line_space if line_space
+end
+
+def validate_action!(action)
+  case action.to_s
+  when ""
+  when "from-local"
+  when "into-local"
+    action.to_s
+  else
+    raise "No action #{action} found!"
+  end
+end
+
+OptionParser.new do |opts|
+  opts.banner = 'Usage: bin/dotfiles [options]'
+
+  opts.on('-v', '--[no-]verbose', 'Run verbosely') do |v|
+    $options[:verbose] = v
+  end
+
+   opts.on('-aACTION', '--action=ACTION',
+           'Copy from this repo into your local or copy your local into this repo.
+            Available names into-local, from-local.
+            Defaults to from-local'
+          ) do |action|
+    validate_action!(action)
+    $options[:action] = action
+  end
+
+   opts.on('-h', '--help', 'Prints this help') do
+    puts opts
+    exit
+  end
+end.parse!
+
+$options[:action] ||= "from-local"
+
+root_repo_folder = File.expand_path("..", __dir__)
+dotfiles = []
+
+########################################################
+#                                                      #
+#                       PROGRAM                        #
+#                                                      #
+########################################################
+
+puts_verbosely "Performing copy #{$options[:action]}", "\n"
+
+`git ls-files`.split(/\n/).each do |file_name|
+   dotfiles << file_name if file_name =~ /\A\.[a-zA-Z]/
+end
+
+puts_verbosely "Found #{dotfiles.join(', ')}", "\n"
+
+dotfiles.each do |name|
+  source = Pathname.new(Dir.home).join(name)
+  target = Pathname.new(root_repo_folder).join(name)
+
+  if $options[:action] != "from-local"
+    source, target = target, source
+  end
+
+  puts_verbosely "Copying #{source} to #{target}"
+  FileUtils.copy(source, target)
+end
+
+puts
+puts "dotfiles copied sucessfully"
+
