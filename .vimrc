@@ -96,6 +96,7 @@ map <S-Right> :tabn<CR>
 map <S-Left>  :tabp<CR>
 map <C-a> <esc>ggVG<CR>
 nmap <Leader>ra :RuboCop -a<CR>
+nmap <Leader>ntf :NERDTreeFind<CR>
 
 " Map alt-x keys to jump to a tab (mac-only)
 nnoremap ¡ 1gt <CR>
@@ -110,7 +111,7 @@ nnoremap ª :tablast <CR>
 " alt-9 ta last tab
 
 " vim-rspec
-let g:rspec_command = "!bundle exec rspec --drb {spec}"
+let g:rspec_command = "!spring rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
