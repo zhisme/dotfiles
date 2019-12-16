@@ -82,6 +82,9 @@ dotfiles.each do |name|
 
   puts_verbosely "Copying #{source} to #{target}"
   FileUtils.copy(source, target)
+rescue Errno::ENOENT
+  puts "Error: no #{name} found in your homedir"
+  next
 end
 
 puts
