@@ -73,18 +73,20 @@ end
 puts_verbosely "Found #{dotfiles.join(', ')}", "\n"
 
 dotfiles.each do |name|
-  source = Pathname.new(Dir.home).join(name)
-  target = Pathname.new(root_repo_folder).join(name)
+  begin
+    source = Pathname.new(Dir.home).join(name)
+    target = Pathname.new(root_repo_folder).join(name)
 
-  if $options[:action] != "from-local"
-    source, target = target, source
+    if $options[:action] != "from-local"
+      source, target = target, source
+    end
+
+    puts_verbosely "Copying #{source} to #{target}"
+    FileUtils.copy(source, target)
+  rescue Errno::ENOENT
+    puts "Error: no #{name} found in your homedir"
+    next
   end
-
-  puts_verbosely "Copying #{source} to #{target}"
-  FileUtils.copy(source, target)
-rescue Errno::ENOENT
-  puts "Error: no #{name} found in your homedir"
-  next
 end
 
 puts

@@ -44,6 +44,7 @@ Plugin 'slim-template/vim-slim'
 Plugin 'prettier/vim-prettier'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'embear/vim-localvimrc'
 
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'vim-ruby/vim-ruby'
@@ -97,6 +98,7 @@ map <S-Left>  :tabp<CR>
 map <C-a> <esc>ggVG<CR>
 nmap <Leader>ra :RuboCop -a<CR>
 nmap <Leader>ntf :NERDTreeFind<CR>
+nmap <Leader>hl :set hlsearch! hlsearch?<CR>
 
 " Map alt-x keys to jump to a tab (mac-only)
 nnoremap ¡ 1gt <CR>
@@ -111,7 +113,7 @@ nnoremap ª :tablast <CR>
 " alt-9 ta last tab
 
 " vim-rspec
-let g:rspec_command = "!spring rspec {spec}"
+let g:rspec_command = "!bundle exec rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
