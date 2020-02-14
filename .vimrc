@@ -79,6 +79,16 @@ endif
 " Prettier
 let g:prettier#exec_cmd_path = "/Users/zh/.nvm/versions/node/v10.17.0/bin/prettier"
 
+" localvimrc
+let g:localvimrc_persistent = 2
+
+" vim-rspec
+let g:rspec_command = "!bundle exec rspec {spec}"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 " custom functions
 function! StripTrailingWhite()
   let l:winview = winsaveview()
@@ -111,10 +121,3 @@ nnoremap ¶ 7gt <CR>
 nnoremap • 8gt <CR>
 nnoremap ª :tablast <CR>
 " alt-9 ta last tab
-
-" vim-rspec
-let g:rspec_command = "!bundle exec rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
