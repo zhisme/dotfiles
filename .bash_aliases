@@ -29,6 +29,8 @@ stashgrep() {
     git stash show -p $i | grep -H --label="$i" "$1"
   done
 }
+export EDITOR=vim
+export VISUAL="$EDITOR"
 
 alias gs='git status '
 alias ga='git add '

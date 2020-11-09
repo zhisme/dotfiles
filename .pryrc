@@ -11,3 +11,9 @@ end
 
 Pry.config.editor = "vim"
 Pry.config.editor = proc { |file, line| "vim +#{line} #{file}" }
+
+if defined?(LazyNames)
+  Pry.config.hooks.add_hook(:when_started, :lazy_names) do
+    LazyNames.load_definitions!
+  end
+end

@@ -41,7 +41,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/ruby-matchit'
 Plugin 'vim-airline/vim-airline'
 Plugin 'slim-template/vim-slim'
-Plugin 'prettier/vim-prettier'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'embear/vim-localvimrc'
@@ -54,6 +53,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'dense-analysis/ale'
 
 call vundle#end()
 
@@ -61,6 +61,14 @@ filetype plugin indent on
 syntax enable
 set background=dark
 colorscheme open-color
+
+" ale
+let g:ale_fixers = {
+ \ 'javascript': ['eslint']
+ \ }
+let g:ale_set_highlights = 0
+" let g:ale_linters_explicit = 1
+nmap <Leader>p :ALEFix<CR>
 
 " vim-slim
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
@@ -75,9 +83,6 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
-" Prettier
-let g:prettier#exec_cmd_path = "/Users/zh/.nvm/versions/node/v10.17.0/bin/prettier"
 
 " localvimrc
 let g:localvimrc_persistent = 2
@@ -109,6 +114,7 @@ map <C-a> <esc>ggVG<CR>
 nmap <Leader>ra :RuboCop -a<CR>
 nmap <Leader>ntf :NERDTreeFind<CR>
 nmap <Leader>hl :set hlsearch! hlsearch?<CR>
+" vnoremap p "0p
 
 " Map alt-x keys to jump to a tab (mac-only)
 nnoremap ¡ 1gt <CR>
