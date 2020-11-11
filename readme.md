@@ -69,16 +69,23 @@
   * Vim
     
     `brew install vim`
+    `brew link vim`
     
     Then symlink to override default vim otherwise you cannot use clipboard.
 
   * Mysql
 
      ```
-       brew install mysql
+       brew install mysql@5.7
+       brew link mysql@5.7
        mysql.server start
        mysql -u root
      ```
+   * [Pure](https://github.com/sindresorhus/pure)
+  
+     Nice autocomplete relative to typed command
+
+     `npm install --global pure-prompt`
 
 ## Troubleshooting
 
