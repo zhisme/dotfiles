@@ -42,7 +42,8 @@ Plugin 'vim-scripts/ruby-matchit'
 Plugin 'vim-airline/vim-airline'
 Plugin 'slim-template/vim-slim'
 Plugin 'ngmy/vim-rubocop'
-Plugin 'thoughtbot/vim-rspec'
+Plugin 'vim-test/vim-test'
+Plugin 'tpope/vim-dispatch'
 Plugin 'embear/vim-localvimrc'
 
 Plugin 'elixir-editors/vim-elixir'
@@ -63,12 +64,17 @@ set background=dark
 colorscheme open-color
 
 " ale
+let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
 let g:ale_fixers = {
  \ 'javascript': ['eslint']
  \ }
 let g:ale_set_highlights = 0
 " let g:ale_linters_explicit = 1
 nmap <Leader>p :ALEFix<CR>
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
 
 " vim-slim
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
@@ -87,12 +93,15 @@ endif
 " localvimrc
 let g:localvimrc_persistent = 2
 
-" vim-rspec
-let g:rspec_command = "!bundle exec rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" vim-test
+let test#strategy = "dispatch"
+let g:tmux_session = "tests"
+
+map <Leader>s :TestNearest<CR>
+map <Leader>t :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+map <Leader>l :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 
 " custom functions
 function! StripTrailingWhite()
@@ -115,6 +124,17 @@ nmap <Leader>ra :RuboCop -a<CR>
 nmap <Leader>ntf :NERDTreeFind<CR>
 nmap <Leader>hl :set hlsearch! hlsearch?<CR>
 " vnoremap p "0p
+
+if has("mac") || has("gui_macvim") || has("gui_mac")
+  " copy relative path
+  nnoremap <leader>cf :let @*=expand("%")<CR>
+  " copy absolute path
+  nnoremap <leader>cF :let @*=expand("%:p")<CR>
+  " copy filename
+  nnoremap <leader>ct :let @*=expand("%:t")<CR>
+  " copy directory name
+  nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
+endif
 
 " Map alt-x keys to jump to a tab (mac-only)
 nnoremap ¡ 1gt <CR>
