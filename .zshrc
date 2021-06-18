@@ -22,6 +22,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_emerchantpay_aliases ]; then
+  . ~/.bash_emerchantpay_aliases
+fi
+
 eval "$(rbenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
@@ -60,3 +64,4 @@ load-nvmrc
 
 autoload -U promptinit; promptinit
 prompt pure
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"

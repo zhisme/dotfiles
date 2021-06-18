@@ -42,4 +42,5 @@ alias gx='gitx --all'
 alias gcl='git clone '
 alias gpl='git pull '
 alias gph='git push '
+alias gpr='git pull --rebase'
 alias ghead="git push origin HEAD "

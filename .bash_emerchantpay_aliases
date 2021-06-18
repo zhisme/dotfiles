@@ -1,0 +1,19 @@
+#!/bin/bash
+
+alias be="bundle exec"
+
+alias gpr="git pull --rebase"
+alias gch="git checkout"
+alias back="cd ../../"
+
+alias symlink="rm -rf lib/secure_gate && ln -s ~/dev/prod/emerchantpay/gw_plugin lib/secure_gate"
+alias esymlink="rm -rf engines/gateway_web_console && ln -s ~/dev/prod/emerchantpay/gateway_web_console engines/gateway_web_console"
+
+alias checkout_symlinks="gch lib/secure_gate; gch engines/gateway_web_console"
+
+alias sub="cd lib/secure_gate"
+alias engine="cd engines/gateway_web_console"
+
+alias plugin_update='function _submodule(){ git submodule update --remote lib/secure_gate; sub; gch develop; gpr; gch $1; gpr; back; gst };_submodule'
+alias engine_update='function _submodule(){ git submodule update --remote engines/gateway_web_console; engine; gch develop; gpr; gch $1; gpr; back; gst };_submodule'
+

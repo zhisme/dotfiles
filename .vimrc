@@ -19,6 +19,7 @@ set showtabline=2
 set pastetoggle=<F8>
 set backspace=indent,eol,start
 set maxmempattern=20000 " for big ones
+set spell
 filetype off
 
 " set the runtime path to include Vundle and initialize
@@ -63,10 +64,16 @@ syntax enable
 set background=dark
 colorscheme open-color
 
+" elixir linter
+let g:ale_elixir_elixir_ls_release=expand("~/dev/elixir/elixir-ls/rel")
+
 " ale
 let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
+let g:ale_linters = {}
+let g:ale_linters.elixir = ['elixir-ls']
 let g:ale_fixers = {
- \ 'javascript': ['eslint']
+ \ 'javascript': ['eslint'],
+ \ 'elixir': ['mix_format']
  \ }
 let g:ale_set_highlights = 0
 " let g:ale_linters_explicit = 1
