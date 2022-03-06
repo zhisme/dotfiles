@@ -24,7 +24,7 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
   editor = /usr/bin/vim
-  pager = /Users/zh/.nvm/versions/node/v10.17.0/bin/diff-so-fancy | less --tabs=4 -RFX
+  pager = `which diff-so-fancy` | less --tabs=4 -RFX
 [color "diff-highlight"]
   oldNormal = red bold
   oldHighlight = red bold 52

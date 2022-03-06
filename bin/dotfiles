@@ -12,6 +12,10 @@ require 'optparse'
 ########################################################
 
 $options = {}
+LINUX_OS = 'Linux'
+OSX = 'osx'
+RUNNING_ON_LINUX = `uname -a`.include?(LINUX_OS)
+ROOT_REPO_FOLDER = File.expand_path("..", __dir__)
 
 def puts_verbosely(str, line_space = nil)
   return unless $options[:verbose]
@@ -31,6 +35,30 @@ def validate_action!(action)
   end
 end
 
+def find_os_specific_dotfiles(file_name)
+  regexp = if RUNNING_ON_LINUX
+    /linux\/\.[a-zA-Z]*/
+  else
+    /macos\/\.[a-zA-Z]*/
+  end
+
+  file_name =~ regexp
+end
+
+def os_specific?(name)
+  name.include?(LINUX_OS.downcase) || name.include?(OSX)
+end
+
+def unpacked_source_name(name)
+  unpacked = if os_specific?(name)
+               name.split('/')[-1]
+             else
+               name
+             end
+
+  Pathname.new(Dir.home).join(unpacked)
+end
+
 OptionParser.new do |opts|
   opts.banner = 'Usage: bin/dotfiles [options]'
 
@@ -47,6 +75,13 @@ OptionParser.new do |opts|
     $options[:action] = action
   end
 
+   opts.on('-t', '--[no-]test',
+           'Passing anything to this option will have no effect.
+            Assume this option as sandbox.'
+          ) do |t|
+     $options[:test] = t
+   end
+
    opts.on('-h', '--help', 'Prints this help') do
     puts opts
     exit
@@ -55,8 +90,8 @@ end.parse!
 
 $options[:action] ||= "from-local"
 
-root_repo_folder = File.expand_path("..", __dir__)
 dotfiles = []
+os_specific_dotfiles = []
 
 ########################################################
 #                                                      #
@@ -64,25 +99,28 @@ dotfiles = []
 #                                                      #
 ########################################################
 
+
 puts_verbosely "Performing copy #{$options[:action]}", "\n"
 
 `git ls-files`.split(/\n/).each do |file_name|
    dotfiles << file_name if file_name =~ /\A\.[a-zA-Z]/
+   os_specific_dotfiles << file_name if find_os_specific_dotfiles(file_name)
 end
 
-puts_verbosely "Found #{dotfiles.join(', ')}", "\n"
+puts_verbosely "Found #{dotfiles.join(', ')} \n#{os_specific_dotfiles.join(', ')}", "\n"
+puts_verbosely "Testing purposes with enabled test option. No changes will have effect.\n\n" if $options[:test]
 
-dotfiles.each do |name|
+(dotfiles + os_specific_dotfiles).each do |name|
   begin
-    source = Pathname.new(Dir.home).join(name)
-    target = Pathname.new(root_repo_folder).join(name)
+    source = unpacked_source_name(name)
+    target = Pathname.new(ROOT_REPO_FOLDER).join(name)
 
     if $options[:action] != "from-local"
       source, target = target, source
     end
 
     puts_verbosely "Copying #{source} to #{target}"
-    FileUtils.copy(source, target)
+    FileUtils.copy(source, target) unless $options[:test]
   rescue Errno::ENOENT
     puts "Error: no #{name} found in your homedir"
     next
