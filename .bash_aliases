@@ -16,7 +16,7 @@ alias ssh_bulvar='ssh artbulvar@185.98.87.220'
 alias ssh_uga="ssh u0426373@31.31.196.192"
 alias ssh_level="ssh deploy@178.128.204.153"
 alias ssh_roshal="ssh deploy@104.248.241.143"
-alias ssh_zh="ssh zh@142.93.131.30"
+alias ssh_zh="ssh zh@104.248.94.236"
 
 #TOOLS
 alias copyx="xclip selection-clipboard"

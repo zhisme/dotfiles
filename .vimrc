@@ -39,6 +39,7 @@ Plugin 'yous/vim-open-color'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/vim-auto-save'
 Plugin 'tpope/vim-commentary'
+Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/ruby-matchit'
 Plugin 'vim-airline/vim-airline'
 Plugin 'slim-template/vim-slim'
@@ -56,6 +57,7 @@ Plugin 'elzr/vim-json'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'dense-analysis/ale'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
 
