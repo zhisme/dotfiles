@@ -6,8 +6,8 @@ alias gpr="git pull --rebase"
 alias gch="git checkout"
 alias back="cd ../../"
 
-alias symlink="rm -rf lib/secure_gate && ln -s ~/dev/prod/emerchantpay/gw_plugin lib/secure_gate"
-alias esymlink="rm -rf engines/gateway_web_console && ln -s ~/dev/prod/emerchantpay/gateway_web_console engines/gateway_web_console"
+alias symlink="rm -rf lib/secure_gate && ln -s ~/dev/projects/emerchantpay/gw_plugin lib/secure_gate"
+alias esymlink="rm -rf engines/gateway_web_console && ln -s ~/dev/projects/emerchantpay/gateway_web_console engines/gateway_web_console"
 
 alias checkout_symlinks="gch lib/secure_gate; gch engines/gateway_web_console"
 
