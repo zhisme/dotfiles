@@ -1,7 +1,4 @@
-:call mkdir(stdpath('config'), 'p')
-:exe 'edit '.stdpath('config').'/init.vim'
-
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
-set clipboard+=unnamedplus
 let &packpath = &runtimepath
+let g:ruby_host_prog='~/.rbenv/versions/2.7.1/bin/neovim-ruby-host'
 source ~/.vimrc
