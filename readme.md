@@ -57,31 +57,16 @@
     Replacement for default terminal
 
   * [Homebrew](https://github.com/Homebrew/install)
-
-    `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-
-  * [Robo3t](https://robomongo.org/)
   
   * [material-design-color](https://github.com/MartinSeeler/iterm2-material-design)
     
     Better colors for iTerm2 terminal
   
-  * Vim
+  * [nvim](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-package) (fork of vim)
     
-    `brew install vim`
-    `brew link vim`
-    
-    Then symlink to override default vim otherwise you cannot use clipboard.
+    `brew install nvim`
 
-  * Mysql
-
-     ```
-       brew install mysql@5.7
-       brew link mysql@5.7
-       mysql.server start
-       mysql -u root
-     ```
-   * [Pure](https://github.com/sindresorhus/pure)
+  * [Pure](https://github.com/sindresorhus/pure)
   
      Nice autocomplete relative to typed command
 
