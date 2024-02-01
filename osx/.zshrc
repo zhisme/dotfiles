@@ -1,6 +1,6 @@
-export ZSH="/Users/zh/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="geoffgarside"
+ZSH_THEME="robbyrussell"
 
 plugins=(
   git
@@ -9,38 +9,39 @@ plugins=(
   common-aliases
   z
   zsh-syntax-highlighting
+  asdf
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# User export
-export PATH="$HOME/bin:$PATH" # use Users/home/zh/bin to execute user scripts
-export PATH="$HOME/.rbenv/bin:$PATH" # rbenv
-# export PATH="/opt/local/bin:$PATH" # override system vim
+# Update PATH variable for extra binaries
+export PATH="$HOME/bin:$PATH"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(rbenv init -)"
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ -f ~/.bash_emerchantpay_aliases ]; then
-  . ~/.bash_emerchantpay_aliases
+# loads user exports
+if [ -f ~/.user_export ]; then
+    . ~/.user_export
 fi
 
-eval "$(rbenv init -)"
+if [ -f $(brew --prefix)/etc/zsh_completion ]; then
+. $(brew --prefix)/etc/zsh_completion
+fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-
-export PATH="/Users/zh/.erlangInstaller/23.0.2/bin:$PATH"
-# export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-source /Users/zh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f "$HOME/yandex-cloud/path.bash.inc" ]; then source "$HOME/yandex-cloud/path.bash.inc"; fi
+# The next line enables shell command completion for yc.
+if [ -f "$HOME/yandex-cloud/completion.zsh.inc" ]; then source "$HOME/yandex-cloud/completion.zsh.inc"; fi
 
 # nvm
-#
-# # place this after nvm initialization!
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# place this after nvm initialization!
 autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"
@@ -62,6 +63,6 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-autoload -U promptinit; promptinit
-prompt pure
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+# kiex
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+

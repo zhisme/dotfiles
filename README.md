@@ -66,12 +66,6 @@
     
     `brew install nvim`
 
-  * [Pure](https://github.com/sindresorhus/pure)
-  
-     Nice autocomplete relative to typed command
-
-     `npm install --global pure-prompt`
-
 ## Troubleshooting
 
   * zsh-syntax-highlightning

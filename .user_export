@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export POSTGRES_USER=
+export GITHUB_TOKEN=
+export NODE_ENV=development

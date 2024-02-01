@@ -12,14 +12,15 @@ set smartcase
 set scrolloff=10
 set foldmethod=indent
 set foldlevelstart=99
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set statusline=%f\ %m
 set autoindent expandtab tabstop=2 shiftwidth=2
 set showtabline=2
 set pastetoggle=<F8>
 set backspace=indent,eol,start
 set maxmempattern=20000 " for big ones
-set spell
+" set spell
+set nohlsearch
 filetype off
 
 " set the runtime path to include Vundle and initialize
@@ -58,6 +59,7 @@ Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'posva/vim-vue'
+Plugin 'hashivim/vim-terraform'
 
 call vundle#end()
 
@@ -106,6 +108,9 @@ let g:localvimrc_persistent = 2
 let test#strategy = "dispatch"
 let g:tmux_session = "tests"
 
+" command-t
+let g:CommandTPreferredImplementation='lua'
+
 map <Leader>s :TestNearest<CR>
 map <Leader>t :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
@@ -114,9 +119,11 @@ nmap <silent> t<C-g> :TestVisit<CR>
 
 " custom functions
 function! StripTrailingWhite()
-  let l:winview = winsaveview()
-  silent! %s/\s\+$//
-  call winrestview(l:winview)
+  if &ft !=# 'markdown' " Check if the file type is not markdown
+    let l:winview = winsaveview()
+    silent! %s/\s\+$//
+    call winrestview(l:winview)
+  endif
 endfunction
 
 augroup custom
