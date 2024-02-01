@@ -20,7 +20,7 @@ alias ssh_zh="ssh zh@165.22.80.158"
 #TOOLS
 alias copyx="xclip selection-clipboard"
 alias pastex="xclip -o -selection clipboard"
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+# alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # GIT
 stashgrep() {
@@ -29,6 +29,10 @@ stashgrep() {
   done
 }
 export EDITOR=nvim
+=======
+grepvim() {
+  git grep $1 | vim -R
+}
 export VISUAL="$EDITOR"
 
 alias gs='git status '

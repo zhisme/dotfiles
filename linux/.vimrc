@@ -19,7 +19,8 @@ set pastetoggle=<F8>
 set backspace=indent,eol,start
 set maxmempattern=20000 " for big ones
 set clipboard+=unnamedplus
-set spell
+set nohlsearch
+set title
 filetype off
 
 " set the runtime path to include Vundle and initialize
@@ -47,6 +48,7 @@ Plugin 'ngmy/vim-rubocop'
 Plugin 'vim-test/vim-test'
 Plugin 'tpope/vim-dispatch'
 Plugin 'embear/vim-localvimrc'
+Plugin 'lyokha/vim-xkbswitch'
 
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'vim-ruby/vim-ruby'
@@ -58,6 +60,7 @@ Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'posva/vim-vue'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 
@@ -67,15 +70,24 @@ set background=dark
 colorscheme open-color
 
 " elixir linter
-let g:ale_elixir_elixir_ls_release=expand("~/dev/elixir/elixir-ls/rel")
+let g:ale_elixir_elixir_ls_release=expand("~/dev/projects/elixir/elixir-ls/rel")
 
 " ale
 let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
-let g:ale_linters = {}
-let g:ale_linters.elixir = ['elixir-ls']
+let g:ale_linters = {
+  \ 'ruby': ['brakeman', 'rubocop'],
+  \ 'eruby': ['erblint'],
+  \ 'rust': ['analyzer'],
+  \ 'elixir': ['elixir-ls']
+  \ }
 let g:ale_fixers = {
+ \ 'ruby': ['rubocop'],
+ \ 'eruby': ['erblint'],
  \ 'javascript': ['eslint'],
- \ 'elixir': ['mix_format']
+ \ 'elixir': ['mix_format'],
+ \ 'typescript': ['prettier'],
+ \ 'json': ['prettier'],
+ \ 'rust': ['rustfmt']
  \ }
 let g:ale_set_highlights = 0
 " let g:ale_linters_explicit = 1
@@ -83,6 +95,11 @@ nmap <Leader>p :ALEFix<CR>
 augroup FiletypeGroup
     autocmd!
     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.js.erb set filetype=javascript
 augroup END
 
 " vim-slim
@@ -112,6 +129,9 @@ nmap <silent> t<C-s> :TestSuite<CR>
 map <Leader>l :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
+" vim-xkbswitch
+let g:XkbSwitchEnabled = 1
+
 " custom functions
 function! StripTrailingWhite()
   let l:winview = winsaveview()
@@ -129,7 +149,6 @@ map <F2>      :NERDTreeToggle<cr>
 map <S-Right> :tabn<CR>
 map <S-Left>  :tabp<CR>
 map <C-a> <esc>ggVG<CR>
-nmap <Leader>ra :RuboCop -a<CR>
 nmap <Leader>ntf :NERDTreeFind<CR>
 nmap <Leader>hl :set hlsearch! hlsearch?<CR>
 " vnoremap p "0p
