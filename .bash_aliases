@@ -20,7 +20,7 @@ alias ssh_zh="ssh zh@165.22.80.158"
 #TOOLS
 alias copyx="xclip selection-clipboard"
 alias pastex="xclip -o -selection clipboard"
-# alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # GIT
 stashgrep() {
@@ -29,10 +29,6 @@ stashgrep() {
   done
 }
 export EDITOR=nvim
-=======
-grepvim() {
-  git grep $1 | vim -R
-}
 export VISUAL="$EDITOR"
 
 alias gs='git status '
@@ -47,6 +43,37 @@ alias gpl='git pull '
 alias gph='git push '
 alias gpr='git pull --rebase'
 alias ghead="git push origin HEAD "
+
+# kubectl
+krest () {
+  k rollout restart deployments/$1
+}
+
+ksh () {
+  k exec -ti $1 -- '/bin/sh'
+}
+
+krc () {
+  k exec -ti $1 -- bundle exec rails c
+}
+
+kedit () {
+  rm -f "raw.json"
+  rm -f "res.json"
+  rm -f "decoded.yml"
+  kubectl get secrets $1-credentials -o json > raw.json
+  cat raw.json | jq -r ".data[\"$2.yml\"]" | base64 -d > decoded.yml
+  vim decoded.yml
+  test $? -eq 0 || (echo "aborting..." && exit)
+
+  cat raw.json | jq -r ".data[\"$2.yml\"] |= \$a" --arg a `base64 -b 0 -i decoded.yml` > res.json
+  kubectl apply -f res.json
+  rm -f "raw.json"
+  rm -f "res.json"
+  rm -f "decoded.yml"
+}
+alias ycs3_kstg='aws s3 --endpoint-url=https://storage.yandexcloud.net --profile kadry-stg'
+alias ycs3_kprod='aws s3 --endpoint-url=https://storage.yandexcloud.net --profile kadry-prod'
 
 # neovim
 alias vim="nvim"
