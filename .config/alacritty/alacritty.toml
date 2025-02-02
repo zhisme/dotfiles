@@ -1,0 +1,42 @@
+[window]
+
+padding.x = 10
+padding.y = 10
+
+[font]
+
+normal.family = "BlexMono Nerd Font Mono"
+bold.family = "BlexMono Nerd Font Mono"
+italic.family = "BlexMono Nerd Font Mono"
+bold_italic.family = "BlexMono Nerd Font Mono"
+
+size = 15.0
+
+[colors]
+
+primary.foreground = "#d8d8d8"
+primary.background = "#222D31"
+
+normal.black = "#585858"
+normal.red = "#eb8e82"
+normal.green = "#bafbeb"
+normal.yellow = "#f7ca88"
+normal.blue = "#7cafc2"
+normal.magenta = "#ba8baf"
+normal.cyan = "#bafbeb"
+normal.white = "#f8f8f8"
+
+bright.black = "#222D31"
+bright.red = "#eb8e82"
+bright.green = "#bafbeb"
+bright.yellow = "#f7ca88"
+bright.blue = "#7cafc2"
+bright.magenta = "#ba8baf"
+bright.cyan = "#bafbeb"
+bright.white = "#d8d8d8"
+
+draw_bold_text_with_bright_colors = true
+
+[selection]
+
+save_to_clipboard = true

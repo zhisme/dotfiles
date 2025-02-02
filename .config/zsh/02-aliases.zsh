@@ -1,6 +1,4 @@
-#!/bin/bash
-
-# RUBY/RAILS
+# ruby/rails
 alias rs='rails s '
 alias rc='rails c '
 alias rakedbr="rake db:reset db:migrate "
@@ -9,28 +7,10 @@ alias b="bundle "
 alias bex="bundle exec "
 alias skiq='bex sidekiq '
 
-# SSH
-alias ssh_root_bulvar='ssh root@185.98.87.220'
-alias ssh_bulvar='ssh artbulvar@185.98.87.220'
-alias ssh_uga="ssh u0426373@31.31.196.192"
-alias ssh_level="ssh deploy@178.128.204.153"
-alias ssh_roshal="ssh deploy@104.248.241.143"
+# SSH servers
 alias ssh_zh="ssh zh@165.22.80.158"
 
-#TOOLS
-alias copyx="xclip selection-clipboard"
-alias pastex="xclip -o -selection clipboard"
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-
-# GIT
-stashgrep() {
-  for i in `git stash list | awk -F ':' '{print $1}'`; do
-    git stash show -p $i | grep -H --label="$i" "$1"
-  done
-}
-export EDITOR=nvim
-export VISUAL="$EDITOR"
-
+# git
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -76,5 +56,5 @@ alias ycs3_kstg='aws s3 --endpoint-url=https://storage.yandexcloud.net --profile
 alias ycs3_kprod='aws s3 --endpoint-url=https://storage.yandexcloud.net --profile kadry-prod'
 
 # neovim
-alias vim="nvim"
+alias vim="nvim" # im used to run vim filename
 

@@ -1,33 +1,50 @@
+## Preview
+![Terminal preview](img/terminal.jpg "Alacritty")
+
+## Requirements
+- git
+- zsh
+- oh-my-zsh
+- neovim
+- homebrew
+- alacritty
+
+## Configuration
+Check .config/zsh/01-initializers.zsh
+Check .config/zsh/03-user-export.zsh
+Check .gitconfig
+
+They need to be updated for your personal needs
+
+## Installation
+```sh
+# install configuration files
+# they will be installed in ~/.config/ and symlinked
+./install.sh
+
+# install brew packages
+xargs brew install < brew_packages.txt
+```
+
 ## Languages
   * Ruby
 
     - [Rbenv](https://github.com/rbenv/rbenv)
 
-    `rbenv install 2.6.1`
-  * Erlang
+    `rbenv install 3.3.7`
 
-    [Download link](https://www.erlang-solutions.com/resources/download.html)
-   
-  * Elixir
+### Utilities
+  * [rg](https://github.com/BurntSushi/ripgrep)
 
-    - [Kiex](https://github.com/taylor/kiex)
-
-    `\curl -sSL https://raw.githubusercontent.com/taylor/kiex/master/install | bash -s`
-
-    `kiex install 1.4.5`
-
-## Utilities
-  * [Ag](https://github.com/ggreer/the_silver_searcher)
-
-    Best search speed, used both in vim ctrl-p, and simple search via terminal
+    ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern.
     **Usage**
     ```
-    ls / | ag 'myname'
+    ls / | rg 'myname'
     ```
 
   * [Zsh](https://www.zsh.org)
 
-    Make your terminal fun again (Will be default in new macos Catalina)
+    Make your terminal fun again
 
     **Quick install**
     ```
@@ -40,10 +57,6 @@
 
     Many useful packages, browse /plugins
 
-  * [Vundle](https://github.com/VundleVim/Vundle.vim)
-
-    Vim package manager like bundler for ruby
-
   * [Diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
     Better git diff with syntax highlight
@@ -52,24 +65,20 @@
 
     Better cat command with syntax highlight
 
-  * [iTerm](https://iterm2.com/)
+  * [Alacritty](https://alacritty.org/)
 
     Replacement for default terminal
 
   * [Homebrew](https://github.com/Homebrew/install)
-  
-  * [material-design-color](https://github.com/MartinSeeler/iterm2-material-design)
-    
-    Better colors for iTerm2 terminal
-  
-  * [nvim](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-package) (fork of vim)
-    
+
+  * [nvim](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-package)
+
     `brew install nvim`
 
 ## Troubleshooting
 
   * zsh-syntax-highlightning
-  
+
     If occurs `plugin zsh-syntax-highlighting not found` run the following.
 
     ```
