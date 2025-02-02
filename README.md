@@ -10,9 +10,9 @@
 - alacritty
 
 ## Configuration
-Check .config/zsh/01-initializers.zsh
-Check .config/zsh/03-user-export.zsh
-Check .gitconfig
+Check .config/zsh/01-initializers.zsh  
+Check .config/zsh/03-user-export.zsh  
+Check .gitconfig  
 
 They need to be updated for your personal needs
 
