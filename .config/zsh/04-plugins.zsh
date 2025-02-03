@@ -41,4 +41,4 @@ export PATH="$PATH:$GOPATH/bin"
 
 ###
 # kubectx plugin
-# RPS1='$(kubectx_prompt_info)'
+RPS1='$(kubectx_prompt_info)'
