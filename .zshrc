@@ -1,5 +1,5 @@
 # Directory containing your configuration files
-CONFIG_DIR="$HOME/.config/zshq"
+CONFIG_DIR="$HOME/.config/zsh"
 
 if [[ -d "$CONFIG_DIR" ]]; then
   for file in "$CONFIG_DIR"/*.zsh; do
