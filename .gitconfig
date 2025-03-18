@@ -1,3 +1,5 @@
+[init]
+  defaultBranch = master
 [diff]
   tool = vimdiff
   noprefix = true
