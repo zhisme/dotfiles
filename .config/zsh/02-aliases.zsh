@@ -8,7 +8,7 @@ alias bex="bundle exec "
 alias skiq='bex sidekiq '
 
 # SSH servers
-alias ssh_zh="ssh zh@165.22.80.158"
+alias ssh_zh_kub="ssh root@164.90.235.7"
 
 # git
 alias gs='git status '
@@ -52,8 +52,6 @@ kedit () {
   rm -f "res.json"
   rm -f "decoded.yml"
 }
-alias ycs3_kstg='aws s3 --endpoint-url=https://storage.yandexcloud.net --profile kadry-stg'
-alias ycs3_kprod='aws s3 --endpoint-url=https://storage.yandexcloud.net --profile kadry-prod'
 
 # neovim
 alias vim="nvim" # im used to run vim filename

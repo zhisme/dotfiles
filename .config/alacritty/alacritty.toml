@@ -40,3 +40,8 @@ draw_bold_text_with_bright_colors = true
 [selection]
 
 save_to_clipboard = true
+
+[bell]
+  duration = 100        # milliseconds for visual bell flash
+  color = "#ffffff"     # flash color
+  command = { program = "afplay", args = ["/System/Library/Sounds/Ping.aiff"] }  # macOS sound
