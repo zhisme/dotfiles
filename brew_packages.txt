@@ -1,5 +1,6 @@
+automake
 bat
-buf
+beads
 dart-lang/dart/dart
 diff-so-fancy
 doctl
@@ -14,10 +15,12 @@ jq
 kubectx
 lazygit
 libmagic
+llvm
 luarocks
 mysql@8.4
 neofetch
 neovim
+open-mpi
 openconnect
 openshift-cli
 postgresql@14
@@ -25,8 +28,8 @@ pure
 rbenv
 sass/sass/sass
 secp256k1
-steveyegge/beads/bd
 terraform
 the_silver_searcher
 tree
+tree-sitter-cli
 vips
