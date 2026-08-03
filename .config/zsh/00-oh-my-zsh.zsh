@@ -10,7 +10,6 @@ plugins=(
   kubectl
   kubectx
   z
-  zsh-autosuggestions
   zsh-syntax-highlighting
 )
 
