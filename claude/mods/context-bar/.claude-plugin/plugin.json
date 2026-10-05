@@ -1,0 +1,1 @@
+{ "name": "context-bar", "version": "0.1.0", "description": "Five-hour usage window as a colored bar above the prompt, toggled with /context-bar", "types": "./types/index.d.ts" }

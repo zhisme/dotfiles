@@ -72,3 +72,33 @@ for dotfile in "$dotfiles_dir"/.*; do
     fi
   fi
 done
+
+# Claude Code configuration
+CLAUDE_SOURCE_DIR="$dotfiles_dir/claude"
+CLAUDE_DEST_DIR="$HOME/.claude"
+
+mkdir -p "$CLAUDE_DEST_DIR/mods"
+
+for item in settings.json statusline-command.sh mods/context-bar; do
+  target="$CLAUDE_DEST_DIR/$item"
+
+  if [[ -e "$target" || -L "$target" ]]; then
+    echo_warn "Warning: $target already exists. Skipping."
+  else
+    ln -s "$CLAUDE_SOURCE_DIR/$item" "$target"
+    echo_ok "Symlinked $CLAUDE_SOURCE_DIR/$item to $target"
+  fi
+done
+
+if command -v claude >/dev/null 2>&1; then
+  for name in $(jq -r 'keys[]' "$CLAUDE_SOURCE_DIR/mcp-servers.json"); do
+    if claude mcp get "$name" >/dev/null 2>&1; then
+      echo_warn "Warning: MCP server $name already exists. Skipping."
+    else
+      claude mcp add-json --scope user "$name" "$(jq -c --arg n "$name" '.[$n]' "$CLAUDE_SOURCE_DIR/mcp-servers.json")"
+      echo_ok "Added MCP server $name"
+    fi
+  done
+else
+  echo_warn "Warning: claude not found. Skipping MCP servers."
+fi
