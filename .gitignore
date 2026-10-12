@@ -1,3 +1,4 @@
 .DS_Store
 .gitconfig-local
 claude/mods/*/.claude-plugin/types/
+.config/zsh/03-user-export.zsh

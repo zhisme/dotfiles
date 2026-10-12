@@ -11,7 +11,7 @@
 
 ## Configuration
 Check .config/zsh/01-initializers.zsh  
-Check .config/zsh/03-user-export.zsh  
+Copy .config/zsh/03-user-export.zsh.example to .config/zsh/03-user-export.zsh (gitignored, holds secrets, loaded from .zshenv)  
 Check .gitconfig  
 
 They need to be updated for your personal needs
