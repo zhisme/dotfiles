@@ -65,5 +65,13 @@
   "tui": "fullscreen",
   "editorMode": "normal",
   "preferredNotifChannel": "terminal_bell",
-  "autoContinueAtUsageLimit": false
+  "autoContinueAtUsageLimit": false,
+  "pluginConfigs": {
+    "ponytail@ponytail": {
+      "options": {
+        "ledger": true,
+        "sendNames": true
+      }
+    }
+  }
 }
