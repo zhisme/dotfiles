@@ -105,6 +105,24 @@ test('draws nothing without a five-hour reading', async ($, on) => {
   await ui.unmount()
 })
 
+test('keeps the band drawn by the next mod in the slot while the bar is visible', async ($, on) => {
+  engine(on)
+  await measure($, [{ kind: 'five_hour', percentUsed: 30 }])
+  const ui = await mountBand($, 'terminal')
+  expect(await ui.find({ type: 'Text', text: / 30%/ })).toBeDefined()
+  expect(await ui.find({ key: 'engine' })).toBeDefined()
+  await ui.unmount()
+})
+
+test('still draws the bar when nothing answers beneath', async ($, on) => {
+  mock.clock(on, { now: NOW })
+  on('session.measure', (_$, e) => ({ changed: e.changed }))
+  await measure($, [{ kind: 'five_hour', percentUsed: 30 }])
+  const ui = await mountBand($, 'terminal')
+  expect(await ui.find({ type: 'Text', text: / 30%/ })).toBeDefined()
+  await ui.unmount()
+})
+
 test('yields to a survey', async ($, on) => {
   engine(on)
   await measure($, [{ kind: 'five_hour', percentUsed: 30 }])

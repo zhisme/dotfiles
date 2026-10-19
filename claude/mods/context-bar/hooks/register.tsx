@@ -79,6 +79,7 @@ export const register: Register = on => {
     const isQuiet = e.props.hasSurvey || window === null || !(await read($, isVisible))
     if (isQuiet) return next(e)
 
+    const below = await next(e).catch(() => undefined)
     const { Box, Text } = $.ui.resolve(e)
     const label = ` ${window.percentUsed}%${formatReset(window.resetsAt)}`
     const cells = Math.max(10, Math.min(BAR_CELLS, e.props.bodyColumns - label.length - 1))
@@ -95,9 +96,12 @@ export const register: Register = on => {
     }
 
     return (
-      <Box flexDirection="row">
-        {bar}
-        <Text color={colorAt(window.percentUsed)}>{label}</Text>
+      <Box flexDirection="column">
+        <Box flexDirection="row">
+          {bar}
+          <Text color={colorAt(window.percentUsed)}>{label}</Text>
+        </Box>
+        {below}
       </Box>
     )
   })
