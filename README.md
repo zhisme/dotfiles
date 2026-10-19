@@ -28,7 +28,7 @@ xargs brew install < brew_packages.txt
 
 ### Claude Code
 `install.sh` symlinks `claude/` items into `~/.claude/` (settings, statusline, `context-bar` mod) and registers MCP servers from `claude/mcp-servers.json` at user scope.
-`CLAUDE.md` lives in [zhisme/prompt](https://github.com/zhisme/prompt). Plugins (caveman) are reinstalled from `enabledPlugins` in `settings.json` on first launch.
+`CLAUDE.md` lives in [zhisme/prompt](https://github.com/zhisme/prompt). Plugins (ponytail) are reinstalled from `enabledPlugins` in `settings.json` on first launch.
 
 ## Languages
   * Ruby

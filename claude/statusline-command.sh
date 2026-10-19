@@ -24,9 +24,4 @@ out="$dir"
 [ -n "$branch" ] && out="$out ($branch)"
 out="$out [$model]"
 
-caveman_dir=$(jq -r '.plugins["caveman@caveman"][0].installPath // empty' "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/plugins/installed_plugins.json" 2>/dev/null)
-caveman=""
-[ -n "$caveman_dir" ] && caveman=$(bash "$caveman_dir/src/hooks/caveman-statusline.sh" 2>/dev/null)
-[ -n "$caveman" ] && out="$out $caveman"
-
 printf '%s' "$out"
