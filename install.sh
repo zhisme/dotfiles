@@ -102,3 +102,20 @@ if command -v claude >/dev/null 2>&1; then
 else
   echo_warn "Warning: claude not found. Skipping MCP servers."
 fi
+
+# OpenCode configuration
+OPENCODE_SOURCE_DIR="$dotfiles_dir/opencode"
+OPENCODE_DEST_DIR="$HOME/.config/opencode"
+
+mkdir -p "$OPENCODE_DEST_DIR"
+
+for item in opencode.jsonc cli.json tui.json skills; do
+  target="$OPENCODE_DEST_DIR/$item"
+
+  if [[ -e "$target" || -L "$target" ]]; then
+    echo_warn "Warning: $target already exists. Skipping."
+  else
+    ln -s "$OPENCODE_SOURCE_DIR/$item" "$target"
+    echo_ok "Symlinked $OPENCODE_SOURCE_DIR/$item to $target"
+  fi
+done

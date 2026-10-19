@@ -30,6 +30,9 @@ xargs brew install < brew_packages.txt
 `install.sh` symlinks `claude/` items into `~/.claude/` (settings, statusline, `context-bar` mod) and registers MCP servers from `claude/mcp-servers.json` at user scope.
 `CLAUDE.md` lives in [zhisme/prompt](https://github.com/zhisme/prompt). Plugins (ponytail) are reinstalled from `enabledPlugins` in `settings.json` on first launch.
 
+### OpenCode
+`install.sh` symlinks `opencode/opencode.jsonc`, `cli.json`, `tui.json` and `skills/` into `~/.config/opencode/`. Runtime files (`service.json`, `node_modules`, auth) stay local and are not tracked.
+
 ## Languages
   * Ruby
 
