@@ -79,7 +79,7 @@ CLAUDE_DEST_DIR="$HOME/.claude"
 
 mkdir -p "$CLAUDE_DEST_DIR/mods"
 
-for item in settings.json statusline-command.sh mods/context-bar; do
+for item in settings.json statusline-command.sh commands mods/context-bar; do
   target="$CLAUDE_DEST_DIR/$item"
 
   if [[ -e "$target" || -L "$target" ]]; then
