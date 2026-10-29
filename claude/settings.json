@@ -62,34 +62,19 @@
       }
     }
   },
-  "autoMode": {
-    "environment": [
-      "$defaults",
-      "Source control: github.com/opentalon and github.com/Talooner, all repos under both orgs. The workspace root /Users/zh/dev/projects/opentalon-ai is not a repo; each subdirectory is its own repo with its remote in one of these orgs",
-      "Repository visibility: most opentalon/* repos are public; opentalon/opentalon-workflows and all Talooner/* repos are private. Private Talooner content must not land in public repos",
-      "Trusted internal domains: api.trello.com (team ticket board)",
-      "Org-specific CLIs: gh (authenticated as zhisme), go, make, golangci-lint",
-      "Source control: gitlab.com/onlinecopyrig-rlr6226/zoller-fb (private, default branch master, ff-only merges, pipeline must pass), driven via glab (authenticated as zhisme)"
-    ],
-    "allow": [
-      "$defaults",
-      "Merging PRs in github.com/opentalon/* and github.com/Talooner/* repos that the agent or its subagents opened for the current task, via gh pr merge (squash) once all CI checks are green, without human approval; the user reviews after the fact. Not --admin, and never with failing or pending checks",
-      "Pushing feature branches to and merging MRs in gitlab.com/onlinecopyrig-rlr6226/zoller-fb that the agent opened for the current task, via glab mr merge once the pipeline is green, without human approval. Never with failing or pending pipelines, never force-push or push directly to master",
-      "Pushing semver tags and creating GitHub releases on github.com/opentalon/* and github.com/Talooner/* repos to land a dependency chain (core first, then dependents bump to it); the project is pre-production and bad tags are fixed forward",
-      "Creating and moving cards on the team Trello board via api.trello.com"
-    ]
-  },
   "effortLevel": "high",
   "modelSettings": {
     "claude-opus-5": {
       "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "xhigh"
     }
   },
   "askUserQuestionTimeout": "never",
-  "tui": "fullscreen",
-  "editorMode": "normal",
-  "preferredNotifChannel": "terminal_bell",
-  "autoContinueAtUsageLimit": false,
   "pluginConfigs": {
     "ponytail@ponytail": {
       "options": {
@@ -97,5 +82,27 @@
         "sendNames": true
       }
     }
-  }
+  },
+  "tui": "fullscreen",
+  "editorMode": "normal",
+  "preferredNotifChannel": "terminal_bell",
+  "autoContinueAtUsageLimit": false,
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Merging PRs in github.com/opentalon/* and github.com/Talooner/* repos that the agent or its subagents opened for the current task, via gh pr merge (squash) once all CI checks are green, without human approval; the user reviews after the fact. Not --admin, and never with failing or pending checks",
+      "Pushing feature branches to and merging MRs in gitlab.com/onlinecopyrig-rlr6226/zoller-fb that the agent opened for the current task, via glab mr merge once the pipeline is green, without human approval. Never with failing or pending pipelines, never force-push or push directly to master",
+      "Pushing semver tags and creating GitHub releases on github.com/opentalon/* and github.com/Talooner/* repos to land a dependency chain (core first, then dependents bump to it); the project is pre-production and bad tags are fixed forward",
+      "Creating and moving cards on the team Trello board via api.trello.com"
+    ],
+    "environment": [
+      "$defaults",
+      "Source control: github.com/opentalon and github.com/Talooner, all repos under both orgs. The workspace root /Users/zh/dev/projects/opentalon-ai is not a repo; each subdirectory is its own repo with its remote in one of these orgs",
+      "Repository visibility: most opentalon/* repos are public; opentalon/opentalon-workflows and all Talooner/* repos are private. Private Talooner content must not land in public repos",
+      "Trusted internal domains: api.trello.com (team ticket board)",
+      "Org-specific CLIs: gh (authenticated as zhisme), go, make, golangci-lint",
+      "Source control: gitlab.com/onlinecopyrig-rlr6226/zoller-fb (private, default branch master, ff-only merges, pipeline must pass), driven via glab (authenticated as zhisme)"
+    ]
+  },
+  "skipWorkflowUsageWarning": true
 }
