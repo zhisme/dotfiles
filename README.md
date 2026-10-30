@@ -11,7 +11,7 @@
 
 ## Configuration
 Check .config/zsh/01-initializers.zsh  
-Copy .config/zsh/03-user-export.zsh.example to .config/zsh/03-user-export.zsh (gitignored, holds secrets, loaded from .zshenv)  
+`.config/zsh/03-user-export.zsh` is intentionally gitignored (holds secrets, loaded from .zshenv). After a migration, restore it from the tracked template `.config/zsh/03-user-export.tt.zsh` — placeholders only, fill in real values locally, never commit them  
 Check .gitconfig  
 
 They need to be updated for your personal needs
