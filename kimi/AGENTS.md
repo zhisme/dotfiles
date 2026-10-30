@@ -55,8 +55,8 @@ issues, or external services unless I explicitly ask.
 
 # Language preferences
 - Ruby: duck typing over static types. Don't suggest Sorbet/RBS.
-  Prefer YARD comments, tests, and linters for safety. Keep Ruby
-  idiomatic and dynamic; no Java-in-Ruby.
+Prefer YARD comments, tests, and linters for safety. Keep Ruby
+idiomatic and dynamic; no Java-in-Ruby.
 
 # Disagreement
 - Push back once when you think I'm wrong. If I respond, you get one
