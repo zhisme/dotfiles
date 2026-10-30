@@ -26,17 +26,13 @@ They need to be updated for your personal needs
 xargs brew install < brew_packages.txt
 ```
 
-### Claude Code
-`install.sh` symlinks `claude/` items into `~/.claude/` (settings, statusline, `context-bar` mod) and registers MCP servers from `claude/mcp-servers.json` at user scope.
-`CLAUDE.md` lives in [zhisme/prompt](https://github.com/zhisme/prompt). Plugins (ponytail) are reinstalled from `enabledPlugins` in `settings.json` on first launch.
-
 ### OpenCode
 `install.sh` symlinks `opencode/opencode.jsonc`, `cli.json`, `tui.json` and `skills/` into `~/.config/opencode/`. Runtime files (`service.json`, `node_modules`, auth) stay local and are not tracked.
 
 ### Kimi Code
 `install.sh` symlinks `kimi/config.toml`, `mcp.json`, `tui.toml`, `statusline-command.sh` and `skills/` into `~/.kimi-code/`, and links `~/.kimi-code/AGENTS.md` to `~/.claude/CLAUDE.md` when present. Login (OAuth) and provider/model tables are provisioned by `/login` on first launch and stay local.
 
-Migrated from the Claude config: `/auto` permission mode (Never Ask) with a `Bash(rm -rf*)` deny guardrail, the Bash allowlist (`npm run build/lint`, `git commit`, `git push -u origin`, `glab mr`, `glab ci`), browsermcp + chrome-devtools MCP servers, the custom status line, fullscreen TUI, and the `acceptance`, `plan-task`, `simple-review` commands as Skills (`/skill:<name>`). Claude-only pieces with no Kimi equivalent: ponytail/context-bar plugins and the autoMode policies.
+`/auto` permission mode (Never Ask) with a `Bash(rm -rf*)` deny guardrail, the Bash allowlist (`npm run build/lint`, `git commit`, `git push -u origin`, `glab mr`, `glab ci`), browsermcp + chrome-devtools MCP servers, the custom status line, fullscreen TUI, and the `acceptance`, `plan-task`, `simple-review` commands as Skills (`/skill:<name>`). Dropped for lack of a Kimi equivalent: ponytail/context-bar plugins and autoMode policies.
 
 ## Languages
   * Ruby
