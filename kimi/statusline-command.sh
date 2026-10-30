@@ -7,6 +7,15 @@ model=$(printf '%s' "$input" | jq -r '
   elif (.model | type) == "string" then .model
   else (.display_name // .model_name // "") end
 ')
+usage=$(printf '%s' "$input" | jq -r '
+  (.usage // .context_usage) as $u |
+  if ($u | type) == "object" then
+    if (($u.total // 0) > 0) then "\((($u.used // 0) * 100 / $u.total) | floor)%"
+    elif $u.percent then $u.percent
+    else "" end
+  elif ($u | type) == "string" then $u
+  else "" end
+')
 
 dir="${cwd/#$HOME/~}"
 
@@ -27,5 +36,6 @@ fi
 out="$dir"
 [ -n "$branch" ] && out="$out ($branch)"
 [ -n "$model" ] && out="$out [$model]"
+[ -n "$usage" ] && out="$out $usage"
 
 printf '%s' "$out"
