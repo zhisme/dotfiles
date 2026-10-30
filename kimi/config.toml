@@ -1,0 +1,5 @@
+default_permission_mode = "auto"
+
+[[permission.rules]]
+decision = "deny"
+pattern = "Bash(rm -rf*)"

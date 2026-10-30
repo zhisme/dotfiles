@@ -33,6 +33,9 @@ xargs brew install < brew_packages.txt
 ### OpenCode
 `install.sh` symlinks `opencode/opencode.jsonc`, `cli.json`, `tui.json` and `skills/` into `~/.config/opencode/`. Runtime files (`service.json`, `node_modules`, auth) stay local and are not tracked.
 
+### Kimi Code
+`install.sh` symlinks `kimi/config.toml` into `~/.kimi-code/`. Login (OAuth) and provider/model tables are provisioned by `/login` on first launch and stay local. Default permission mode is `auto` (Never Ask): tool approvals run unattended, with a `Bash(rm -rf*)` deny rule as the guardrail. Switch per session with `/yolo` (Ask When Needed) or `/auto` (Never Ask).
+
 ## Languages
   * Ruby
 

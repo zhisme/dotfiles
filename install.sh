@@ -119,3 +119,20 @@ for item in opencode.jsonc cli.json tui.json skills; do
     echo_ok "Symlinked $OPENCODE_SOURCE_DIR/$item to $target"
   fi
 done
+
+# Kimi Code configuration
+KIMI_SOURCE_DIR="$dotfiles_dir/kimi"
+KIMI_DEST_DIR="$HOME/.kimi-code"
+
+mkdir -p "$KIMI_DEST_DIR"
+
+for item in config.toml; do
+  target="$KIMI_DEST_DIR/$item"
+
+  if [[ -e "$target" || -L "$target" ]]; then
+    echo_warn "Warning: $target already exists. Skipping."
+  else
+    ln -s "$KIMI_SOURCE_DIR/$item" "$target"
+    echo_ok "Symlinked $KIMI_SOURCE_DIR/$item to $target"
+  fi
+done
