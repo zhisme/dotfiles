@@ -79,7 +79,7 @@ OPENCODE_DEST_DIR="$HOME/.config/opencode"
 
 mkdir -p "$OPENCODE_DEST_DIR"
 
-for item in opencode.jsonc cli.json tui.json skills; do
+for item in opencode.jsonc cli.json tui.json skills command; do
   target="$OPENCODE_DEST_DIR/$item"
 
   if [[ -e "$target" || -L "$target" ]]; then
