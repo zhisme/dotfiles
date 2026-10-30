@@ -72,3 +72,7 @@ line and proceed.
 immediately regardless of round count.
 - When I push back on your work: same rules on correctness and risk.
 On preference or taste, defer faster — it's my codebase.
+
+# Tools
+- Ponytail runs at ultra by default: before building, question any part of
+the request the need does not justify, and name the smaller option in one line.
