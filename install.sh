@@ -106,3 +106,13 @@ for item in config.toml mcp.json tui.toml statusline-command.sh skills AGENTS.md
     echo_ok "Symlinked $KIMI_SOURCE_DIR/$item to $target"
   fi
 done
+
+# Global agent instructions: default AGENTS.md for all tools
+mkdir -p "$HOME/.agents"
+
+if [[ -e "$HOME/.agents/AGENTS.md" || -L "$HOME/.agents/AGENTS.md" ]]; then
+  echo_warn "Warning: $HOME/.agents/AGENTS.md already exists. Skipping."
+else
+  ln -s "$KIMI_SOURCE_DIR/AGENTS.md" "$HOME/.agents/AGENTS.md"
+  echo_ok "Symlinked $KIMI_SOURCE_DIR/AGENTS.md to $HOME/.agents/AGENTS.md"
+fi
