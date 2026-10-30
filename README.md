@@ -37,6 +37,8 @@ xargs brew install < brew_packages.txt
 ### AGENTS.md
 `AGENTS.md` at the repo root is the global agent instructions (moved from zhisme/prompt). `install.sh` links it as `~/.agents/AGENTS.md` (cross-tool default) and `~/.kimi-code/AGENTS.md`.
 
+A shared `skills/` directory holds cross-tool skills (installed as `~/.agents/skills`, currently just `hirify`); tool-specific skills live in `kimi/skills/` and `opencode/skills/`.
+
 ## Languages
   * Ruby
 

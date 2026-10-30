@@ -103,6 +103,16 @@ for target in "$HOME/.kimi-code/AGENTS.md" "$HOME/.agents/AGENTS.md"; do
   fi
 done
 
+# Cross-tool agent skills (shared across kimi-code, opencode, claude, ...)
+SKILLS_SOURCE="$dotfiles_dir/skills"
+
+if [[ -e "$HOME/.agents/skills" || -L "$HOME/.agents/skills" ]]; then
+  echo_warn "Warning: $HOME/.agents/skills already exists. Skipping."
+else
+  ln -s "$SKILLS_SOURCE" "$HOME/.agents/skills"
+  echo_ok "Symlinked $SKILLS_SOURCE to $HOME/.agents/skills"
+fi
+
 # Kimi Code configuration
 KIMI_SOURCE_DIR="$dotfiles_dir/kimi"
 KIMI_DEST_DIR="$HOME/.kimi-code"
