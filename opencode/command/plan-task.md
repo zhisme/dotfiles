@@ -1,5 +1,6 @@
 ---
 description: Build a ready-to-run prompt for a task (direct or parallel subagent workflow); never executes it
+agent: plan
 ---
 
 You are a PROMPT BUILDER. Your only output is a prompt I will review and run
@@ -85,7 +86,7 @@ DONE WHEN:    verifiable acceptance criteria
 OUTPUT:       exact artifact, format, location
 
 --- FANOUT schema ---
-Run as a dynamic workflow. Spawn the subagents below in parallel, each with
+Spawn the subagents below in parallel using the `subagent` tool, each in a
 fresh context. Collect, verify, and merge into one final result.
 
 GOAL:         one sentence, the deliverable
@@ -210,7 +211,7 @@ interactions    --> nothing
 
 ## Prompt
 ```
-Run as a dynamic workflow. Spawn the subagents below in parallel, each with
+Spawn the subagents below in parallel using the `subagent` tool, each in a
 fresh context. Collect, verify, and merge into one final result.
 
 GOAL:         Ranked list of verified weak spots in pipeline-architecture.md
