@@ -1,0 +1,4 @@
+tui_mode = "fullscreen" # "regular" | "fullscreen" ("fullscreen" is experimental)
+
+[status_line]
+command = "bash ~/.kimi-code/statusline-command.sh"

@@ -3,3 +3,39 @@ default_permission_mode = "auto"
 [[permission.rules]]
 decision = "deny"
 pattern = "Bash(rm -rf*)"
+
+[[permission.rules]]
+decision = "allow"
+pattern = "Bash(npm run build*)"
+
+[[permission.rules]]
+decision = "allow"
+pattern = "Bash(npm run lint*)"
+
+[[permission.rules]]
+decision = "allow"
+pattern = "Bash(git commit*)"
+
+[[permission.rules]]
+decision = "allow"
+pattern = "Bash(git push -u origin*)"
+
+[[permission.rules]]
+decision = "allow"
+pattern = "Bash(glab mr create*)"
+
+[[permission.rules]]
+decision = "allow"
+pattern = "Bash(glab mr view*)"
+
+[[permission.rules]]
+decision = "allow"
+pattern = "Bash(glab mr merge*)"
+
+[[permission.rules]]
+decision = "allow"
+pattern = "Bash(glab ci status*)"
+
+[[permission.rules]]
+decision = "allow"
+pattern = "Bash(glab ci view*)"

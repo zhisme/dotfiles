@@ -126,7 +126,7 @@ KIMI_DEST_DIR="$HOME/.kimi-code"
 
 mkdir -p "$KIMI_DEST_DIR"
 
-for item in config.toml; do
+for item in config.toml mcp.json tui.toml statusline-command.sh skills; do
   target="$KIMI_DEST_DIR/$item"
 
   if [[ -e "$target" || -L "$target" ]]; then
@@ -136,3 +136,9 @@ for item in config.toml; do
     echo_ok "Symlinked $KIMI_SOURCE_DIR/$item to $target"
   fi
 done
+
+# Share the global Claude instructions (CLAUDE.md) as Kimi's AGENTS.md
+if [[ -f "$HOME/.claude/CLAUDE.md" && ! -e "$KIMI_DEST_DIR/AGENTS.md" ]]; then
+  ln -s "$HOME/.claude/CLAUDE.md" "$KIMI_DEST_DIR/AGENTS.md"
+  echo_ok "Symlinked $HOME/.claude/CLAUDE.md to $KIMI_DEST_DIR/AGENTS.md"
+fi

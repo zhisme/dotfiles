@@ -34,7 +34,9 @@ xargs brew install < brew_packages.txt
 `install.sh` symlinks `opencode/opencode.jsonc`, `cli.json`, `tui.json` and `skills/` into `~/.config/opencode/`. Runtime files (`service.json`, `node_modules`, auth) stay local and are not tracked.
 
 ### Kimi Code
-`install.sh` symlinks `kimi/config.toml` into `~/.kimi-code/`. Login (OAuth) and provider/model tables are provisioned by `/login` on first launch and stay local. Default permission mode is `auto` (Never Ask): tool approvals run unattended, with a `Bash(rm -rf*)` deny rule as the guardrail. Switch per session with `/yolo` (Ask When Needed) or `/auto` (Never Ask).
+`install.sh` symlinks `kimi/config.toml`, `mcp.json`, `tui.toml`, `statusline-command.sh` and `skills/` into `~/.kimi-code/`, and links `~/.kimi-code/AGENTS.md` to `~/.claude/CLAUDE.md` when present. Login (OAuth) and provider/model tables are provisioned by `/login` on first launch and stay local.
+
+Migrated from the Claude config: `/auto` permission mode (Never Ask) with a `Bash(rm -rf*)` deny guardrail, the Bash allowlist (`npm run build/lint`, `git commit`, `git push -u origin`, `glab mr`, `glab ci`), browsermcp + chrome-devtools MCP servers, the custom status line, fullscreen TUI, and the `acceptance`, `plan-task`, `simple-review` commands as Skills (`/skill:<name>`). Claude-only pieces with no Kimi equivalent: ponytail/context-bar plugins and the autoMode policies.
 
 ## Languages
   * Ruby
@@ -91,10 +93,6 @@ xargs brew install < brew_packages.txt
   * [tree](https://github.com/Old-Man-Programmer/tree)
 
     Recursive directory listing.
-
-  * [beads](https://github.com/steveyegge/beads)
-
-    Persistent memory for coding agents — issue/knowledge store your agent reads and writes across sessions.
 
   * [Zsh](https://www.zsh.org)
 

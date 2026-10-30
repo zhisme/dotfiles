@@ -1,6 +1,5 @@
 automake
 bat
-beads
 dart-lang/dart/dart
 diff-so-fancy
 doctl
