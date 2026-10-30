@@ -39,3 +39,7 @@ pattern = "Bash(glab ci status*)"
 [[permission.rules]]
 decision = "allow"
 pattern = "Bash(glab ci view*)"
+
+[[hooks]]
+event = "SessionEnd"
+command = "python3 /Users/zh/dev/dotfiles/kimi/band-import.py"
