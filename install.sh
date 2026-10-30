@@ -103,7 +103,7 @@ for target in "$HOME/.kimi-code/AGENTS.md" "$HOME/.agents/AGENTS.md"; do
   fi
 done
 
-# Cross-tool agent skills (shared across kimi-code, opencode, claude, ...)
+# Cross-tool agent skills (shared across kimi-code, opencode, ...)
 SKILLS_SOURCE="$dotfiles_dir/skills"
 
 if [[ -e "$HOME/.agents/skills" || -L "$HOME/.agents/skills" ]]; then
