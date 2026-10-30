@@ -3,6 +3,7 @@ export POSTGRES_USER=zh
 export NODE_ENV="development"
 export EDITOR=nvim
 export VISUAL="$EDITOR"
+export OPENCODE_DISABLE_FREE_MODELS=1
 
 # tokens
 export DO_TOKEN="dop_v1_*"
