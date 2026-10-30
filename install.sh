@@ -90,13 +90,26 @@ for item in opencode.jsonc cli.json tui.json skills; do
   fi
 done
 
+# Global agent instructions: default AGENTS.md (repo root)
+AGENTS_SOURCE="$dotfiles_dir/AGENTS.md"
+mkdir -p "$HOME/.kimi-code" "$HOME/.agents"
+
+for target in "$HOME/.kimi-code/AGENTS.md" "$HOME/.agents/AGENTS.md"; do
+  if [[ -e "$target" || -L "$target" ]]; then
+    echo_warn "Warning: $target already exists. Skipping."
+  else
+    ln -s "$AGENTS_SOURCE" "$target"
+    echo_ok "Symlinked $AGENTS_SOURCE to $target"
+  fi
+done
+
 # Kimi Code configuration
 KIMI_SOURCE_DIR="$dotfiles_dir/kimi"
 KIMI_DEST_DIR="$HOME/.kimi-code"
 
 mkdir -p "$KIMI_DEST_DIR"
 
-for item in config.toml mcp.json tui.toml statusline-command.sh skills AGENTS.md; do
+for item in config.toml mcp.json tui.toml statusline-command.sh skills; do
   target="$KIMI_DEST_DIR/$item"
 
   if [[ -e "$target" || -L "$target" ]]; then
@@ -106,13 +119,3 @@ for item in config.toml mcp.json tui.toml statusline-command.sh skills AGENTS.md
     echo_ok "Symlinked $KIMI_SOURCE_DIR/$item to $target"
   fi
 done
-
-# Global agent instructions: default AGENTS.md for all tools
-mkdir -p "$HOME/.agents"
-
-if [[ -e "$HOME/.agents/AGENTS.md" || -L "$HOME/.agents/AGENTS.md" ]]; then
-  echo_warn "Warning: $HOME/.agents/AGENTS.md already exists. Skipping."
-else
-  ln -s "$KIMI_SOURCE_DIR/AGENTS.md" "$HOME/.agents/AGENTS.md"
-  echo_ok "Symlinked $KIMI_SOURCE_DIR/AGENTS.md to $HOME/.agents/AGENTS.md"
-fi
